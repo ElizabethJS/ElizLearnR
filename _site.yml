@@ -1,6 +1,6 @@
-name: "ElizabethTest"
+name: "Statistics for the Social Sciences"
 navbar:
-  title: "ElizabethTest"
+  title: "Statistics for the Social Sciences"
   left:
     - text: "Home"
       href: index.html
