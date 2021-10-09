@@ -19,7 +19,7 @@ output: html_document
 
 # **Statistics for the Social Sciences - Elizabeth Stoner**
 
-This is a template example for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
+Elizabeth is a Criminology and Visual Studies major at the University of Pennsylvania. She will be graduating in May of 2023 and plans to work for the FBI. This website shows assignments done for the class, CRIM 250. The assignments are completed in RStudio. Their purpose is to to provide practice in data analysis and using R to build figures and go over the data. 
 
 ## How to use
 
