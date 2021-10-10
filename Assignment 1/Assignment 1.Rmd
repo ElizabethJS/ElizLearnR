@@ -1,0 +1,178 @@
+---
+title: "Assignments"
+output:
+  pdf_document:
+    toc: no
+    toc_depth: '1'
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
+    toc_depth: 1
+---
+
+
+This page will contain all the assignments you submit for the class.
+
+
+
+### Instructions for all assignments
+
+I want you to submit your assignment as a PDF, so I can keep a record of what the code looked like that day. I also want you to include your answers on your personal GitHub website. This will be good practice for editing your website and it will help you produce something you can keep after the class is over.
+
+1. Download the Assignment1.Rmd file from Canvas. You can use this as a template for writing your answers. It's the same as what you can see on my website in the Assignments tab. Once we're done with this I'll edit the text on the website to include the solutions.
+
+2. On RStudio, open a new R script in RStudio (File > New File > R Script). This is where you can test out your R code. You'll write your R commands and draw plots here.
+
+3. Once you have finalized your code, copy and paste your results into this template (Assignment 1.Rmd). For example, if you produced a plot as the solution to one of the problems, you can copy and paste the R code in R markdown by using the ` ``{r} ``` ` command. Answer the questions in full sentences and Save.
+
+4. Produce a PDF file with your answers. To do this, knit to PDF (use Knit button at the top of RStudio), locate the PDF file in your docs folder (it's in the same folder as the Rproj), and submit that on on Canvas in Assignment 1.
+
+5. Build Website, go to GitHub desktop, commit and push. Now your solutions should be on your website as well.
+
+
+
+
+
+
+# Assignment 1
+
+**Collaborators: Carmen Avery, Rachel Villari, and Halle Wasser. **
+
+This assignment is due on Canvas on Monday 9/20 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
+
+
+### Problem 1 
+
+Install the datasets package on the console below using `install.packages("datasets")`. Now load the library.
+
+```{r}
+datasets::USArrests
+install.packages("datasets")
+library("datasets")
+USArrests
+dat<-USArrests # renames USArrests as dat
+dat
+```
+
+Load the USArrests dataset and rename it `dat`. Note that this dataset comes with R, in the package datasets, so there's no need to load data from your computer. Why is it useful to rename the dataset?
+
+Answer: It's useful to rename the dataset so that we know specifically which dataset we are working with. Additionally, when we edit the dataset it is helpful to have a differentiation (in name) from the original dataset. Additionally "dat" is shorter than the original dataset name.
+
+```{r}
+
+```
+
+### Problem 2
+
+Use this command to make the state names into a new variable called State. 
+
+```{r, eval=FALSE}
+dat$state <- tolower(rownames(USArrests))
+names(dat)
+# This line creates a new variable: states
+```
+
+This dataset has the state names as row names, so we just want to make them into a new variable. We also make them all lower case, because that will help us draw a map later - the map function requires the states to be lower case.
+
+List the variables contained in the dataset `USArrests`.
+Answer: The variables are murder, assault, urbanpop, and rape. 
+```{r}
+
+```
+
+### Problem 3 
+
+What type of variable (from the DVB chapter) is `Murder`? 
+
+Answer: According to the DVB chapter, murder is a quantitative variable. 
+
+What R Type of variable is it?
+
+Answer:In R, Murder is a character variable. 
+
+### Problem 4
+
+What information is contained in this dataset, in general? What do the numbers mean? 
+
+Answer: This dataset lists the average rate of arrests in each state for a specific type of crime. For example, in Iowa there has been an average of 2.2 arrests for murder. The fact that some of the data are listed as decimal numbers indicates that the dataset is reporting averages, as there cannot actually be 2.2 real arrests. 
+
+### Problem 5
+
+Draw a histogram of `Murder` with proper labels and title.
+
+```{r}
+hist(dat$Murder, main="US Arrests for Murder", xlab="Average Arrests", ylab="Frequency of Average Arrests") # This line contains the code for the histogram, including its title and axis names
+```
+
+### Problem 6
+
+Please summarize `Murder` quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?
+
+Answer: Murder's mean is 7.788. Its median is 7.25. The mean is the average of all values in the dataset, whereas the median is simply the middle value of those listed from smallest to largest. The median is also synonymous with the second quartile, Q2. A quartile is when the values of a dataset are divided into four groups. R gives the first and third quartiles because these are common values used in statistics, so it is helpful for R to calculate them automatically. 
+```{r}
+a<-c(13.2, 10.0, 8.1, 8.8, 9.0, 7.9, 3.3, 5.9, 15.4, 17.4, 5.3, 2.6, 10.4, 7.2, 2.2, 6.0, 9.7, 15.4, 2.1, 11.3, 4.4, 12.1, 2.7, 16.1, 9.0, 6.0, 4.3, 12.2, 2.1, 7.4, 11.4, 11.1, 13.0, 0.8, 7.3, 6.6, 4.9, 6.3, 3.4, 14.4, 3.8, 13.2, 12.7, 3.2, 2.2, 8.5, 4.0, 5.7, 2.6, 6.8) # This line creates the label "a" for the set of data values in Murder. 
+mean(a) # This code calculates the mean of a. 
+median(a) # This code calculates the median of a. 
+```
+
+### Problem 7
+
+Repeat the same steps you followed for `Murder`, for the variables `Assault` and `Rape`. Now plot all three histograms together. You can do this by using the command `par(mfrow=c(3,1))` and then plotting each of the three. 
+
+```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+b<-c(236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 249, 113, 56, 115, 109, 249, 83, 300, 149, 255, 72, 259, 178, 109, 102, 252, 57, 159, 285, 254, 337, 45, 120, 151, 159, 106, 174, 279, 86, 188, 201, 120, 48, 156, 145, 81, 53, 161) # creates the label "b" for the set of data values in Assault
+mean(b) # calculates the mean of Assault
+median(b) # calculates the median of Assault
+b<-c(236, 263, 294, 190, 276, 204, 110, 238, 335, 211, 46, 120, 249, 113, 56, 115, 109, 249, 83, 300, 149, 255, 72, 259, 178, 109, 102, 252, 57, 159, 285, 254, 337, 45, 120, 151, 159, 106, 174, 279, 86, 188, 201, 120, 48, 156, 145, 81, 53, 161) # creates the label "c" for the set of data values in Rape
+mean(b) # calculates the mean of Rape
+median(b) # calculates the median of Rape
+hist(dat$Assault, main="US Arrests for Assault", xlab="Average Arrests", ylab="Frequency of Average Arrests") # Code for histogram of Assault, including title and axis labels
+hist(dat$Rape, main="US Arrests for Rape", xlab="Average Arrests", ylab="Frequency of Average Arrests") # Code for histogram of Rape, including title and axis labels
+par("mar")
+par(mar=c(1,1,1,1)) # command to fix the parameters to fix the fact that the figure margins were too large
+par(mfrow=c(3,1)) # command to plot multiple histograms
+hist(dat$Murder, main="US Arrests for Murder", xlab="Average Arrests", ylab="Frequency of Average Arrests")
+hist(dat$Assault, main="US Arrests for Assault", xlab="Average Arrests", ylab="Frequency of Average Arrests")
+hist(dat$Rape, main="US Arrests for Rape", xlab="Average Arrests", ylab="Frequency of Average Arrests")
+```
+Answer: The mean of Assault is 170.76 and the median is 159. The mean of Rape is 21.232 and the median is 20.1. 
+
+What does the command par do, in your own words (you can look this up by asking R `?par`)?
+
+Answer: The command par allows you to set parameters when graphing, or to simply look up certain graphical parameters. 
+
+What can you learn from plotting the histograms together?
+
+Answer:By plotting the histograms together, it becomes easier to see how the rates of arrests compare for the type of crimes committed. For example, it is evident from looking at the histograms that the rate of arrests for assault is much higher than that of murder. It is a helpful way to learn how the difrferent variables interact. 
+  
+### Problem 8
+
+In the console below (not in text), type `install.packages("maps")` and press Enter, and then type `install.packages("ggplot2")` and press Enter. This will install the packages so you can load the libraries.
+
+Run this code:
+
+```{r, eval = FALSE, fig.width = 7.5, fig.height = 4}
+library('maps') 
+library('ggplot2') 
+
+ggplot(dat, aes(map_id=state, fill=Murder)) + 
+  geom_map(map=map_data("state")) + 
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+```
+
+What does this code do? Explain what each line is doing.
+
+Answer: This code creates a map of the US displaying the arrest rates for murder by state. Lines one and two access the maps and ggplot functions via the library. Line three commands that the dataset for Murder be used in the plot, such that each state be colored by its corresponding arrest rate for murder. Line four finds the geographical information for the map, making each state distinct. The last line sets the limits of the axes and makes the x-axis longitude and the y-axis latitude. 
+
+$$\\[2in]$$
+
+
+
+
+# Assignment 2 
+
+(Coming soon)
+
+

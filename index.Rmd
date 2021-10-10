@@ -19,7 +19,7 @@ output: html_document
 
 # **Statistics for the Social Sciences - Elizabeth Stoner**
 
-Elizabeth is a Criminology and Visual Studies major at the University of Pennsylvania. She will be graduating in May of 2023 and plans to work for the FBI. This website shows assignments done for the class, CRIM 250. The assignments are completed in RStudio. Their purpose is to to provide practice in data analysis and using R to build figures and go over the data. 
+Elizabeth is a Criminology and Visual Studies major at the University of Pennsylvania. She will be graduating in May of 2023 and plans to work for the FBI. This website shows assignments done for the class, CRIM 250. The assignments are completed in RStudio. Their purpose is to to provide practice in data analysis and using R to build figures and go over the data.
 
 ## How to use
 
