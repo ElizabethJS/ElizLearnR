@@ -217,7 +217,10 @@ class(dat$irsex)
 
 # What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
 ```{r}
-
+hist(dat$age2,
+     main="Final Age",
+     xlab="Age Response Code",
+     ylab="Frequency")
 ```
 
 
