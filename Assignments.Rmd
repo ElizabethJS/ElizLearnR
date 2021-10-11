@@ -153,22 +153,6 @@ Answer:By plotting the histograms together, it becomes easier to see how the rat
 
 In the console below (not in text), type `install.packages("maps")` and press Enter, and then type `install.packages("ggplot2")` and press Enter. This will install the packages so you can load the libraries.
 
-Run this code:
-
-```{r, eval = FALSE, fig.width = 7.5, fig.height = 4}
-library('maps') 
-library('ggplot2') 
-
-ggplot(dat, aes(map_id=state, fill=Murder)) + 
-  geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
-```
-What does this code do? Explain what each line is doing.
-
-Answer: This code creates a map of the US displaying the arrest rates for murder by state. Lines one and two access the maps and ggplot functions via the library. Line three commands that the dataset for Murder be used in the plot, such that each state be colored by its corresponding arrest rate for murder. Line four finds the geographical information for the map, making each state distinct. The last line sets the limits of the axes and makes the x-axis longitude and the y-axis latitude. 
-
-$$\\[2in]$$
-
 
 
 # Title: Assignment 2
@@ -184,10 +168,20 @@ $$\\[2in]$$
 ##setwd("C:/Users/Elizabeth/Desktop/CRIM 250")
 
 # Read the data
+```{r}
+#Sys.which("make")
+## "C:\\rtools40\\usr\\bin\\make.exe"
+#install.packages("jsonlite", type = "source")
+#install.packages('plyr', repos = "http://cran.us.r-project.org")
+```
+
+```{r}
 library(readr)
-dat_nsduh_small_1 <- read_csv("Assignment 2/dat.nsduh.small.1.csv")
-View(dat_nsduh_small_1)
-dat <- read_csv("Assignment 2/dat.nsduh.small.1.csv")
+dat_nsduh_small_1 <- read_csv("dat.nsduh.small.1.csv")
+dat <- read_csv("dat.nsduh.small.1.csv")
+```
+
+
 
 # What are the dimensions of the dataset? 
 dim(dat)
@@ -270,8 +264,8 @@ hist(dat$iralcage, main="First tried Alcohol", xlab="Age", ylab="Frequency of Ag
 
 # What does the distribution of sexual attraction look like? Is this what you expected?
 ```{r}
-install.packages("magrittr") # package installations are only needed the first time you use it
-install.packages("dplyr")    # alternative installation of the %>%
+#install.packages("magrittr") # package installations are only needed the first time you use it
+#install.packages("dplyr")    # alternative installation of the %>%
 library(magrittr) # needs to be run every time you start R and want to use %>%
 library(dplyr)    # alternatively, this also loads %>%
 dat$sexatract <- dat$sexatract %>% na_if(., "99")
@@ -340,7 +334,6 @@ d. Load the data into an R data frame.
 ```{r}
 library(readr)
 fatal_police_shootings_data <- dat<-read_csv("fatal-police-shootings-data.csv")
-View(dat)
 ```
 
 
