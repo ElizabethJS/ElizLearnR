@@ -9,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Elizabeth Stoner" />
 
-<meta name="date" content="2021-10-04" />
 
-<title>Exam 1</title>
+<title>Assignments</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -340,9 +338,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Exam 1</h1>
-<h4 class="author">Elizabeth Stoner</h4>
-<h4 class="date">10/04/2021</h4>
+<h1 class="title toc-ignore">Assignments</h1>
 
 </div>
 
@@ -600,30 +596,18 @@ hist(dat$Rape, main=&quot;US Arrests for Rape&quot;, xlab=&quot;Average Arrests&
 <p>In the console below (not in text), type <code>install.packages("maps")</code> and press Enter, and then type <code>install.packages("ggplot2")</code> and press Enter. This will install the packages so you can load the libraries.</p>
 </div>
 </div>
-<div id="title-assignment-2" class="section level1">
-<h1>Title: Assignment 2</h1>
+<div id="assignment-2" class="section level1">
+<h1>Assignment 2</h1>
+<div id="crim-250-statistics-for-the-social-sciences" class="section level2">
+<h2>Crim 250: Statistics for the Social Sciences</h2>
+<p>Name: Elizabeth Stoner Date: 09/27/2021</p>
+<div id="instructions-copy-your-code-paste-it-into-a-word-document-and-turn-it-into-canvas.-you-can-turn-in-a-.docx-or-.pdf-file.-show-any-eda-graphical-or-non-graphical-you-have-used-to-come-to-this-conclusion." class="section level3">
+<h3>Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.</h3>
 </div>
-<div id="subtitle-crim-250-statistics-for-the-social-sciences" class="section level1">
-<h1>Subtitle: Crim 250: Statistics for the Social Sciences</h1>
-</div>
-<div id="name-elizabeth-stoner" class="section level1">
-<h1>Name: Elizabeth Stoner</h1>
-</div>
-<div id="date-09272021" class="section level1">
-<h1>Date: 09/27/2021</h1>
-</div>
-<div id="instructions-copy-your-code-paste-it-into-a-word-document-and-turn-it-into-canvas.-you-can-turn-in-a-.docx-or-.pdf-file.-show-any-eda-graphical-or-non-graphical-you-have-used-to-come-to-this-conclusion." class="section level1">
-<h1>Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.</h1>
-<div id="problem-1-load-data" class="section level2">
-<h2>Problem 1: Load data</h2>
-</div>
-</div>
-<div id="set-your-working-directory-to-the-folder-where-you-downloaded-the-data." class="section level1">
-<h1>Set your working directory to the folder where you downloaded the data.</h1>
-<p>##setwd(“C:/Users/Elizabeth/Desktop/CRIM 250”)</p>
-</div>
-<div id="read-the-data" class="section level1">
-<h1>Read the data</h1>
+<div id="problem-1-load-data" class="section level3">
+<h3>Problem 1: Load data</h3>
+<p>Set your working directory to the folder where you downloaded the data. setwd(“C:/Users/Elizabeth/Desktop/CRIM 250”)</p>
+<p>Read the data</p>
 <pre class="r"><code>#Sys.which(&quot;make&quot;)
 ## &quot;C:\\rtools40\\usr\\bin\\make.exe&quot;
 #install.packages(&quot;jsonlite&quot;, type = &quot;source&quot;)
@@ -631,57 +615,31 @@ hist(dat$Rape, main=&quot;US Arrests for Rape&quot;, xlab=&quot;Average Arrests&
 <pre class="r"><code>library(readr)
 dat_nsduh_small_1 &lt;- read_csv(&quot;dat.nsduh.small.1.csv&quot;)
 dat &lt;- read_csv(&quot;dat.nsduh.small.1.csv&quot;)</code></pre>
+<p>What are the dimensions of the dataset? dim(dat) The dimensions of the dataset are 171 observations of 7 variables.</p>
+<p>names(dat) The names of the variables are mjage, cigage, iralcage, age2, sexatract, speakengl, and irsex.</p>
 </div>
-<div id="what-are-the-dimensions-of-the-dataset" class="section level1">
-<h1>What are the dimensions of the dataset?</h1>
-<p>dim(dat) ## The dimensions of the dataset are 171 observations of 7 variables.</p>
-<p>names(dat) ## The names of the variables are mjage, cigage, iralcage, age2, sexatract, speakengl, and irsex.</p>
-<div id="problem-2-variables" class="section level2">
-<h2>Problem 2: Variables</h2>
+<div id="problem-2-variables" class="section level3">
+<h3>Problem 2: Variables</h3>
+<p>Describe the variables in the dataset. class(dat<span class="math inline">\(mjage) class(dat\)</span>cigage) class(dat<span class="math inline">\(iralcage) class(dat\)</span>age2) class(dat<span class="math inline">\(sexatract) class(dat\)</span>speakengl) class(dat$irsex) There are seven variables in the dataset. In R, each variable is numeric. Mjage stands for the age at which respondents used marijuana or hashish for the first time. Cigage shows the ages at which respondents first started smoking cigarettes every day. Iralcage is the ages at which respondents first tried alcohol. Age2 is the most recent age of the respondents. Irsex is the gender of the respondents and is a categorical variable. Sexatract lists the sexual attraction of the respondents. Speakengl lists how well the respondents speak English.</p>
+<p>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data? The dataset is from the National Survey of Drug Use and Health. The dataset is used to understand the extent of drug use and other health issues throughout the United States. The data were collected by the Substance Abuse and Mental Health Services Administration, part of the U.S. Department of Health and Human Services. The NSDUH uses a stratified sample within the United States population. The purpose of gathering this data is to provide an understanding of the health issues pervasive in America in order to establish helpful treatment programs and inform public policy.</p>
 </div>
-</div>
-<div id="describe-the-variables-in-the-dataset." class="section level1">
-<h1>Describe the variables in the dataset.</h1>
-<p>class(dat<span class="math inline">\(mjage) class(dat\)</span>cigage) class(dat<span class="math inline">\(iralcage) class(dat\)</span>age2) class(dat<span class="math inline">\(sexatract) class(dat\)</span>speakengl) class(dat$irsex) ## There are seven variables in the dataset. In R, each variable is numeric. Mjage stands for the age at which respondents used marijuana or hashish for the first time. Cigage shows the ages at which respondents first started smoking cigarettes every day. Iralcage is the ages at which respondents first tried alcohol. Age2 is the most recent age of the respondents. Irsex is the gender of the respondents and is a categorical variable. Sexatract lists the sexual attraction of the respondents. Speakengl lists how well the respondents speak English.</p>
-</div>
-<div id="what-is-this-dataset-about-who-collected-the-data-what-kind-of-sample-is-it-and-what-was-the-purpose-of-generating-the-data" class="section level1">
-<h1>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</h1>
-<div id="the-dataset-is-from-the-national-survey-of-drug-use-and-health.-the-dataset-is-used-to-understand-the-extent-of-drug-use-and-other-health-issues-throughout-the-united-states.-the-data-were-collected-by-the-substance-abuse-and-mental-health-services-administration-part-of-the-u.s.-department-of-health-and-human-services.-the-nsduh-uses-a-stratified-sample-within-the-united-states-population.-the-purpose-of-gathering-this-data-is-to-provide-an-understanding-of-the-health-issues-pervasive-in-america-in-order-to-establish-helpful-treatment-programs-and-inform-public-policy." class="section level2">
-<h2>The dataset is from the National Survey of Drug Use and Health. The dataset is used to understand the extent of drug use and other health issues throughout the United States. The data were collected by the Substance Abuse and Mental Health Services Administration, part of the U.S. Department of Health and Human Services. The NSDUH uses a stratified sample within the United States population. The purpose of gathering this data is to provide an understanding of the health issues pervasive in America in order to establish helpful treatment programs and inform public policy.</h2>
-</div>
-<div id="problem-3-age-and-gender" class="section level2">
-<h2>Problem 3: Age and gender</h2>
-</div>
-</div>
-<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean." class="section level1">
-<h1>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h1>
+<div id="problem-3-age-and-gender" class="section level3">
+<h3>Problem 3: Age and gender</h3>
+<p>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</p>
 <pre class="r"><code>hist(dat$age2,
      main=&quot;Final Age&quot;,
      xlab=&quot;Age Response Code&quot;,
      ylab=&quot;Frequency&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<div id="the-majority-of-the-age-variables-were-listed-between-12-and-16.-according-to-the-codebook-this-indicates-that-most-respondents-were-between-24-and-64-years-old.-the-most-frequent-ages-reported-were-from-30-to-64-years-old.-the-least-frequent-ages-reported-were-between-15-to-19-years-old.-in-this-dataset-there-were-no-ages-younger-than-15." class="section level2">
-<h2>The majority of the age variables were listed between 12 and 16. According to the codebook, this indicates that most respondents were between 24 and 64 years old. The most frequent ages reported were from 30 to 64 years old. The least frequent ages reported were between 15 to 19 years old. In this dataset there were no ages younger than 15.</h2>
-</div>
-</div>
-<div id="do-you-think-this-age-distribution-is-representative-of-the-us-population-why-or-why-not" class="section level1">
-<h1>Do you think this age distribution is representative of the US population? Why or why not?</h1>
-<div id="i-would-expect-to-see-a-higher-frequency-of-18-to-30-year-olds-rather-than-have-the-peak-start-at-30.-additionally-according-to-the-codebook-the-ages-of-respondents-when-the-questionnaire-began-were-different-from-when-it-ended.-as-a-result-i-expect-that-this-distribution-is-not-entirely-reflective-of-the-age-distribution-of-the-current-u.s.-population-however-it-is-likely-not-too-skewed-either." class="section level2">
-<h2>I would expect to see a higher frequency of 18 to 30 year olds, rather than have the peak start at 30. Additionally, according to the codebook, the ages of respondents when the questionnaire began were different from when it ended. As a result, I expect that this distribution is not entirely reflective of the age distribution of the current U.S. population; however, it is likely not too skewed either.</h2>
-</div>
-</div>
-<div id="is-the-sample-balanced-in-terms-of-gender-if-not-are-there-more-females-or-males" class="section level1">
-<h1>Is the sample balanced in terms of gender? If not, are there more females or males?</h1>
+<p>The majority of the age variables were listed between 12 and 16. According to the codebook, this indicates that most respondents were between 24 and 64 years old. The most frequent ages reported were from 30 to 64 years old. The least frequent ages reported were between 15 to 19 years old. In this dataset there were no ages younger than 15.</p>
+<p>Do you think this age distribution is representative of the US population? Why or why not? I would expect to see a higher frequency of 18 to 30 year olds, rather than have the peak start at 30. Additionally, according to the codebook, the ages of respondents when the questionnaire began were different from when it ended. As a result, I expect that this distribution is not entirely reflective of the age distribution of the current U.S. population; however, it is likely not too skewed either.</p>
+<p>Is the sample balanced in terms of gender? If not, are there more females or males?</p>
 <pre class="r"><code>table(dat$irsex)</code></pre>
 <pre><code>## 
 ##  1  2 
 ## 91 80</code></pre>
-<div id="according-to-the-table-generated-by-r-there-are-91-males-and-80-females-in-the-dataset.-therefore-it-is-not-balanced-as-there-are-more-males-than-females." class="section level2">
-<h2>According to the table generated by R, there are 91 males and 80 females in the dataset. Therefore, it is not balanced as there are more males than females.</h2>
-</div>
-</div>
-<div id="use-this-code-to-draw-a-stacked-bar-plot-to-view-the-relationship-between-sex-and-age.-what-can-you-conclude-from-this-plot" class="section level1">
-<h1>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</h1>
+<p>According to the table generated by R, there are 91 males and 80 females in the dataset. Therefore, it is not balanced as there are more males than females.</p>
+<p>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</p>
 <pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
 barplot(tab.agesex,
         main = &quot;Stacked barchart&quot;,
@@ -689,15 +647,11 @@ barplot(tab.agesex,
         legend.text = rownames(tab.agesex),
         beside = FALSE) # Stacked bars (default)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div id="this-plot-shows-as-would-be-expected-that-there-were-more-men-in-each-age-group-aside-from-ages-19-to-20-than-women-who-participated.-however-the-most-frequent-age-range-of-both-males-and-females-was-ages-35-to-49.-it-is-also-worth-noting-that-the-only-participants-ages-16-to-17-were-male.-it-is-at-these-younger-ages-that-we-see-more-discrepancies-between-male-and-female-participants.-but-starting-at-age-21-the-male-female-distribution-evens-out-a-bit." class="section level2">
-<h2>This plot shows, as would be expected, that there were more men in each age group, aside from ages 19 to 20, than women who participated. However, the most frequent age range of both males and females was ages 35 to 49. It is also worth noting that the only participants ages 16 to 17 were male. It is at these younger ages that we see more discrepancies between male and female participants. But starting at age 21, the male-female distribution evens out a bit.</h2>
+<p>This plot shows, as would be expected, that there were more men in each age group, aside from ages 19 to 20, than women who participated. However, the most frequent age range of both males and females was ages 35 to 49. It is also worth noting that the only participants ages 16 to 17 were male. It is at these younger ages that we see more discrepancies between male and female participants. But starting at age 21, the male-female distribution evens out a bit.</p>
 </div>
-<div id="problem-4-substance-use" class="section level2">
-<h2>Problem 4: Substance use</h2>
-</div>
-</div>
-<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level1">
-<h1>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h1>
+<div id="problem-4-substance-use" class="section level3">
+<h3>Problem 4: Substance use</h3>
+<p>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</p>
 <pre class="r"><code>par(&quot;mar&quot;)</code></pre>
 <pre><code>## [1] 5.1 4.1 4.1 2.1</code></pre>
 <pre class="r"><code>par(mar=c(1,1,1,1))
@@ -706,15 +660,11 @@ hist(dat$mjage, main=&quot;First use Marijuana&quot;, xlab=&quot;Age&quot;, ylab
 hist(dat$cigage, main=&quot;First smoked Cigarettes&quot;, xlab=&quot;Age&quot;, ylab=&quot;Frequency of Age&quot;)
 hist(dat$iralcage, main=&quot;First tried Alcohol&quot;, xlab=&quot;Age&quot;, ylab=&quot;Frequency of Age&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div id="based-on-the-histograms-individuals-tend-to-use-alcohol-earlier.-it-had-the-most-frequent-values-of-ages-5-to-10-compared-to-marijuana-and-cigarettes." class="section level2">
-<h2>Based on the histograms, individuals tend to use alcohol earlier. It had the most frequent values of ages 5 to 10 compared to marijuana and cigarettes.</h2>
+<p>Based on the histograms, individuals tend to use alcohol earlier. It had the most frequent values of ages 5 to 10 compared to marijuana and cigarettes.</p>
 </div>
-<div id="problem-5-sexual-attraction" class="section level2">
-<h2>Problem 5: Sexual attraction</h2>
-</div>
-</div>
-<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level1">
-<h1>What does the distribution of sexual attraction look like? Is this what you expected?</h1>
+<div id="problem-5-sexual-attraction" class="section level3">
+<h3>Problem 5: Sexual attraction</h3>
+<p>What does the distribution of sexual attraction look like? Is this what you expected?</p>
 <pre class="r"><code>#install.packages(&quot;magrittr&quot;) # package installations are only needed the first time you use it
 #install.packages(&quot;dplyr&quot;)    # alternative installation of the %&gt;%
 library(magrittr) # needs to be run every time you start R and want to use %&gt;%
@@ -722,12 +672,8 @@ library(dplyr)    # alternatively, this also loads %&gt;%
 dat$sexatract &lt;- dat$sexatract %&gt;% na_if(., &quot;99&quot;)
 hist(dat$sexatract, main=&quot;Sexual Attraction&quot;, xlab=&quot;Attraction&quot;, ylab=&quot;Frequency&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<div id="after-removing-the-outlying-values-of-99-which-indicates-a-skip-of-data-the-histogram-peaks-at-a-value-of-1.-this-means-that-the-majority-of-respondents-reported-that-they-are-only-attracted-to-the-opposite-sex.-very-few-respondents-answered-that-they-were-attracted-or-mostly-attracted-to-the-same-sex.-at-least-one-respondent-reported-that-they-were-unsure.-i-would-have-expected-more-variation-in-attraction-with-higher-frequencies-of-people-attracted-to-the-same-sex.-this-could-be-explained-by-the-fact-that-the-sample-size-is-relatively-small-and-therefore-may-not-be-entirely-representative-of-the-u.s.-population-in-terms-of-sexual-attraction." class="section level2">
-<h2>After removing the outlying values of 99, which indicates a skip of data, the histogram peaks at a value of 1. This means that the majority of respondents reported that they are only attracted to the opposite sex. Very few respondents answered that they were attracted, or mostly attracted, to the same sex. At least one respondent reported that they were unsure. I would have expected more variation in attraction with higher frequencies of people attracted to the same sex. This could be explained by the fact that the sample size is relatively small, and therefore may not be entirely representative of the U.S. population in terms of sexual attraction.</h2>
-</div>
-</div>
-<div id="what-is-the-distribution-of-sexual-attraction-by-gender" class="section level1">
-<h1>What is the distribution of sexual attraction by gender?</h1>
+<p>After removing the outlying values of 99, which indicates a skip of data, the histogram peaks at a value of 1. This means that the majority of respondents reported that they are only attracted to the opposite sex. Very few respondents answered that they were attracted, or mostly attracted, to the same sex. At least one respondent reported that they were unsure. I would have expected more variation in attraction with higher frequencies of people attracted to the same sex. This could be explained by the fact that the sample size is relatively small, and therefore may not be entirely representative of the U.S. population in terms of sexual attraction.</p>
+<p>What is the distribution of sexual attraction by gender?</p>
 <pre class="r"><code>tab.sexatract &lt;- table(dat$irsex, dat$sexatract)
 barplot(tab.sexatract,
         main = &quot;Stacked barchart&quot;,
@@ -735,21 +681,15 @@ barplot(tab.sexatract,
         legend.text = rownames(tab.sexatract),
         beside = FALSE) # Stacked bars (default)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>##According to the barchart more males than females reported that they were only attracted to the opposite sex. Additionally, the majority of males and females reported that they were only attracted to the opposite sex. More females than males reported that they were mostly attracted to the opposite sex or were equally attracted to both sexes. More males than females reported that they were mostly or only attracted to members of the same sex. Additionally, the respondent who reported they were unsure was male.</p>
-<div id="problem-6-english-speaking" class="section level2">
-<h2>Problem 6: English speaking</h2>
+<p>According to the barchart more males than females reported that they were only attracted to the opposite sex. Additionally, the majority of males and females reported that they were only attracted to the opposite sex. More females than males reported that they were mostly attracted to the opposite sex or were equally attracted to both sexes. More males than females reported that they were mostly or only attracted to members of the same sex. Additionally, the respondent who reported they were unsure was male.</p>
 </div>
-</div>
-<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level1">
-<h1>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h1>
+<div id="problem-6-english-speaking" class="section level3">
+<h3>Problem 6: English speaking</h3>
+<p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</p>
 <pre class="r"><code>hist(dat$speakengl, main=&quot;Speak English&quot;, xlab=&quot;How well&quot;, ylab=&quot;Frequency&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div id="most-of-the-respondents-over-150-reported-that-they-speak-english-very-well-with-few-simply-answering-well-and-even-fewer-reporting-that-they-do-not-speak-it-well.-in-a-random-sample-of-the-u.s.-population-i-would-expect-that-more-people-would-answer-that-they-do-not-speak-english-very-well-creating-more-variation-in-the-histogram.-due-to-the-large-number-of-immigrants-from-all-over-the-world-it-would-make-sense-for-more-people-within-the-whole-population-to-not-feel-as-confident-in-their-english-speaking." class="section level2">
-<h2>Most of the respondents, over 150, reported that they speak English very well, with few simply answering well, and even fewer reporting that they do not speak it well. In a random sample of the U.S. population, I would expect that more people would answer that they do not speak English very well, creating more variation in the histogram. Due to the large number of immigrants from all over the world it would make sense for more people within the whole population to not feel as confident in their English speaking.</h2>
-</div>
-</div>
-<div id="are-there-more-english-speaker-females-or-males" class="section level1">
-<h1>Are there more English speaker females or males?</h1>
+<p>Most of the respondents, over 150, reported that they speak English very well, with few simply answering well, and even fewer reporting that they do not speak it well. In a random sample of the U.S. population, I would expect that more people would answer that they do not speak English very well, creating more variation in the histogram. Due to the large number of immigrants from all over the world it would make sense for more people within the whole population to not feel as confident in their English speaking.</p>
+<p>Are there more English speaker females or males?</p>
 <pre class="r"><code>tab.sexengl &lt;- table(dat$irsex, dat$speakengl)
 barplot(tab.sexengl,
         main = &quot;Stacked barchart&quot;,
@@ -757,12 +697,20 @@ barplot(tab.sexengl,
         legend.text = rownames(tab.sexengl),
         beside = FALSE) # Stacked bars (default)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<div id="according-to-the-barchart-those-who-speak-english-very-well-are-almost-evenly-distributed-between-males-and-females.-however-more-males-than-females-reported-that-they-speak-english-well-indicating-that-overall-more-males-than-females-speak-english-within-the-sample.-additionally-more-females-than-males-reported-that-they-do-not-speak-english-well." class="section level2">
-<h2>According to the barchart, those who speak English very well are almost evenly distributed between males and females. However, more males than females reported that they speak English well, indicating that overall, more males than females speak English within the sample. Additionally, more females than males reported that they do not speak English well.</h2>
+<p>According to the barchart, those who speak English very well are almost evenly distributed between males and females. However, more males than females reported that they speak English well, indicating that overall, more males than females speak English within the sample. Additionally, more females than males reported that they do not speak English well.</p>
 </div>
 </div>
-<div id="instructions" class="section level1">
-<h1>Instructions</h1>
+</div>
+<div id="exam-1" class="section level1">
+<h1>Exam 1</h1>
+<div id="elizabeth-stoner" class="section level2">
+<h2>Elizabeth Stoner</h2>
+</div>
+<div id="section" class="section level2">
+<h2>10/04/2021</h2>
+<p>output: html_document</p>
+<div id="instructions" class="section level3">
+<h3>Instructions</h3>
 <ol style="list-style-type: lower-alpha">
 <li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
 <li><p>Download the dataset from the Canvas website (fatal-police-shootings-data.csv) onto that folder, and save your Exam 1.Rmd file in the same folder.</p></li>
@@ -772,8 +720,8 @@ barplot(tab.sexengl,
 <pre class="r"><code>library(readr)
 fatal_police_shootings_data &lt;- dat&lt;-read_csv(&quot;fatal-police-shootings-data.csv&quot;)</code></pre>
 </div>
-<div id="problem-1-10-points" class="section level1">
-<h1>Problem 1 (10 points)</h1>
+<div id="problem-1-10-points" class="section level3">
+<h3>Problem 1 (10 points)</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the dataset. This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a> . Write two sentences (max.) about this.</li>
 </ol>
@@ -901,8 +849,8 @@ fatal_police_shootings_data &lt;- dat&lt;-read_csv(&quot;fatal-police-shootings-
 ##                                1                                1</code></pre>
 <p><strong>I find it most surprising to see an air conditioner, wasp spray, and a microphone in the “armed” variable.</strong></p>
 </div>
-<div id="problem-2-10-points" class="section level1">
-<h1>Problem 2 (10 points)</h1>
+<div id="problem-2-10-points" class="section level3">
+<h3>Problem 2 (10 points)</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the age distribution of the sample. Is this what you would expect to see?</li>
 </ol>
@@ -927,8 +875,8 @@ fatal_police_shootings_data &lt;- dat&lt;-read_csv(&quot;fatal-police-shootings-
 <p><img src="Assignments_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p><strong>There are 6298 males and 293 females in the dataset. While I would expect there to be more males than females, I am very surprised that there are over twenty times more males than females involved in fatal police shootings.</strong></p>
 </div>
-<div id="problem-3-10-points" class="section level1">
-<h1>Problem 3 (10 points)</h1>
+<div id="problem-3-10-points" class="section level3">
+<h3>Problem 3 (10 points)</h3>
 <ol style="list-style-type: lower-alpha">
 <li>How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</li>
 </ol>
@@ -946,8 +894,8 @@ fatal_police_shootings_data &lt;- dat&lt;-read_csv(&quot;fatal-police-shootings-
 ##        1058         845        3952         248</code></pre>
 <p><strong>The victim fled via car in 1058 incidents and on foot in 845 incidents.So, there were 1903 cases in which the victim fled. There is also an other category applied to 248 cases. However, this category could simply be missing values or other occurrences that are difficult to classify as either fleeing or not fleeing. In 3925 cases the victim was not fleeing. This is about 60% of the cases. I would expect more victims to flee so that there was a more even distribution. However, I suppose it might make sense for officers to interpret victims standing their ground to be more threatening than those trying to run away.</strong></p>
 </div>
-<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level1">
-<h1>Problem 4 (10 points) - Answer only one of these (a or b).</h1>
+<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level3">
+<h3>Problem 4 (10 points) - Answer only one of these (a or b).</h3>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the relationship between the variables “body camera” and “flee” using a stacked barplot. What can you conclude from this relationship?</li>
 </ol>
@@ -965,8 +913,8 @@ barplot(tab.bodycameraflee, main=&quot;Body Camera-Flee Relationship&quot;, xlab
 <p><em>Hint 2: Also, if you are unsure about the syntax for boxplot, run ?boxplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
 <p><strong>Your answer here.</strong></p>
 </div>
-<div id="extra-credit-10-points" class="section level1">
-<h1>Extra credit (10 points)</h1>
+<div id="extra-credit-10-points" class="section level3">
+<h3>Extra credit (10 points)</h3>
 <ol style="list-style-type: lower-alpha">
 <li>What does this code tell us?</li>
 </ol>
@@ -978,6 +926,8 @@ head(mydates) #finds the first part of the vector mydates
 <li><p>On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported? <strong>It would be easy to mislabel police killings due to the lack of body cameras worn by officers, which could provide helpful information to understand the facts of teh case. Instead, it is likely a “he-said-she-said” situation in which bystanders and families of the victims feel that their word will not be taken seriously.</strong></p></li>
 <li><p>Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data? <strong>There are around 248 missing values listed as “other” in the flee category. However, it is likely that there is more that could be missing from the data. For example, looking at the dataset shows missing data in the armed category</strong></p></li>
 </ol>
+</div>
+</div>
 </div>
 
 
