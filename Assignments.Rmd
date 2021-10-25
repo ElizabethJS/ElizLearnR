@@ -471,7 +471,6 @@ output:
   html_document: default
 
 
-
 **Collaborators: Carmen Avery and Halle Wasser**.
 
 This assignment is due on Canvas on Wednesday 10/27/2021 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
