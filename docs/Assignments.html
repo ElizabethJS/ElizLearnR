@@ -1056,6 +1056,113 @@ summary(crime.lm)</code></pre>
 </div>
 </div>
 </div>
+<div id="exam-2" class="section level1">
+<h1>Exam 2</h1>
+<div id="elizabeth-stoner-2" class="section level2">
+<h2>Elizabeth Stoner</h2>
+</div>
+<div id="section-2" class="section level2">
+<h2>11/01/2021</h2>
+<p>output: html_document</p>
+<div id="instructions-1" class="section level3">
+<h3>Instructions</h3>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
+<li><p>Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.</p></li>
+<li><p>Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: <strong>“Does having more funding in a police department lead to fewer incidents of police brutality?”</strong></p></li>
+<li><p>Codebook:</p></li>
+</ol>
+<ul>
+<li>funds: How much funding the police department received in that year in millions of dollars.</li>
+<li>po.brut: How many incidents of police brutality were reported by the department that year.</li>
+<li>po.dept.code: Police department code</li>
+</ul>
+</div>
+<div id="problem-1-eda-10-points" class="section level3">
+<h3>Problem 1: EDA (10 points)</h3>
+<p>Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.</p>
+<pre class="r"><code>dat &lt;- read.csv(file = &#39;sim.data.csv&#39;)
+head(dat)</code></pre>
+<pre><code>##   po.dept.code funds po.brut
+## 1            1  48.1      23
+## 2            2  81.4      10
+## 3            3  41.8      25
+## 4            4  61.7      19
+## 5            5  86.4       8
+## 6            6  51.6      22</code></pre>
+<pre class="r"><code>class(dat$po.dept.code) #integer</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>class(dat$funds) #numeric</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>class(dat$po.brut) #integer</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p><strong>The dataset has 200 observations of police departments. For each observation the dataset has information about three variables. The variables include funds, meaning how much funding the police department received in millions of dollars for one specific year. It is a numeric variable. Another variable is po.brut, which is how many incidents of police brutality were reported by the department that year, which is an integer variable. The last variable is po.dept.code, which just means police department code, identifying which department it is. This variable is an integer. The scatter plot create seems to suggest that there may be a relationship between the two variables in question; however, more analysis is necessary to actually conclude this.</strong></p>
+<pre class="r"><code>plot(dat$funds, dat$po.brut, main=&quot;Scatterplot&quot;, xlab=&quot;Funds&quot;, ylab=&quot;Reported Police Brutality&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+</div>
+<div id="problem-2-linear-regression-30-points" class="section level3">
+<h3>Problem 2: Linear regression (30 points)</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Perform a simple linear regression to answer the question of interest. To do this, name your linear model “reg.output” and write the summary of the regression by using “summary(reg.output)”.</li>
+</ol>
+<pre class="r"><code># Remember to remove eval=FALSE!!
+reg.output &lt;- lm(formula=po.brut~funds, data=dat)
+summary(reg.output)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = po.brut ~ funds, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.9433 -0.2233  0.2544  0.5952  1.1803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 40.543069   0.282503  143.51   &lt;2e-16 ***
+## funds       -0.367099   0.004496  -81.64   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9464 on 198 degrees of freedom
+## Multiple R-squared:  0.9712, Adjusted R-squared:  0.971 
+## F-statistic:  6666 on 1 and 198 DF,  p-value: &lt; 2.2e-16</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain.</li>
+</ol>
+<p><strong>The estimated coefficient of the slope term is -0.367099, which suggests that as funding increases by one unit of million dollars, there may be observed a decrease in reported police brutality by 0.367099. The standard error is 0.004496, meaning this is how much variation there might be for any predicted values. The p-value of the slope is &lt;2e-16. As indicated by the three asterisks this is very statistically significant, as it is less than 5% and close to zero.</strong></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:</li>
+</ol>
+<pre class="r"><code># Remember to remove eval=FALSE!!
+plot(dat$funds, dat$po.brut, main=&quot;Scatterplot&quot;, xlab=&quot;x, po.brut&quot;, ylab=&quot;y, funds&quot;)
+abline(reg.output, col = &quot;red&quot;, lwd=2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-42-1.png" width="384" /></p>
+<p>Does the line look like a good fit? Why or why not?</p>
+<p><strong>This line does look like a good fit. The data itself looks almost normally distributed, however it does appear to have a slight left skew. Nevertheless, the regression line looks to be a good fit, particularly in the middle of the data distribution.</strong></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?</li>
+</ol>
+<pre class="r"><code>plot(reg.output, which=1) #Linearity and Independence assumptions</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><strong>Using this plot the linearity assumption is not met as there is a clear curved pattern rather than a straight line. Based on this test we can also say that the independence assumption is not met either, because of this clear pattern. If I had more time I would transform the data. In order to figure out what type of transformation I should apply I would use the Box-Cox method, then create a new plot using the transformed data.</strong></p>
+<pre class="r"><code>plot(reg.output, which=3) #Equal variance assumption</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><strong>This plot does not meet the equal variance assumption as the data points are somewhat homoscedastic in the middle of the plot, but it gets much thinner on both ends. If I had more time I would follow the same steps as for the other assumptions to transform and re-analyze the data.</strong></p>
+<pre class="r"><code>plot(reg.output, which=2) #Normal population assumption</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><strong>Using the normal qq plot it appears that the data do not meet the normal population assumption since the plot exhibits a heavy left skew. As before, I would use the Box-Cox test to figure out how best to transform the data.</strong></p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Answer the question of interest based on your analysis.</li>
+</ol>
+<p><strong>After this analysis I cannot immediately say that having more funding leads to fewer incidents of police brutality. As none of the assumptions were met, it would not be a good idea to use the linear regression to infer or predict any relationship between the variables. There is more analysis that should be done to fully understand how the variables do or do not relate to one another. Because the p-value suggested strong statistical significance this would be worth doing.</strong></p>
+</div>
+<div id="problem-3-data-ethics-10-points" class="section level3">
+<h3>Problem 3: Data ethics (10 points)</h3>
+<p>Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?</p>
+<p><strong>Despite the fact that there are 200 observations, the dataset itself does not give us too much important information. Because the dataset is simulated we don’t know any sort of geographical or cultural information about these hypothetical police departments. If the police departments were to be all from around the same area or all from an urban setting, this would not be representative of the total population of police departments. If this were a real dataset I would also want to know if any police departments that were contacted for collecting data did not respond. If a specific department has a bad record for police brutality they may be less inclined to provide their information. Additionally, because the variable is reported police brutality, there are clearly cases of police brutality that go unreported. We do not have the ground truth. It is imperative to figure out, or at least estimate, how many these are. There should also be information based on community-police relations. If a community does not trust its police department then it is unlikely that they would report police brutality. Unfortunately, we can infer that the community may distrust their department specifically because of police brutality. Simply put, the nature of the variables is such that the cases that we care about are likely under reported. Because the dataset only has three variables, there could be a lot of other relationships that exist in reality that we have no way to measure using these three variables. I would also be concerned that someone performing linear regression on this dataset would be too quick to infer a causal relationship without testing the assumptions or performing transformations. This could lead to a lot of misinformation being spread about how to properly deal with police brutality.</strong></p>
+</div>
+</div>
+</div>
 
 
 
