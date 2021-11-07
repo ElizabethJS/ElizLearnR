@@ -694,16 +694,17 @@ __Despite the fact that there are 200 observations, the dataset itself does not 
 output:
   html_document: default
   
-###Data Visualisation 
-library(tidyverse) __#loads the core tidyverse package, which helps access datasets, help pages, and functions__
- ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── __#list of packages loaded in with tidyverse__
- ✔ ggplot2 3.3.2     ✔ purrr   0.3.4
- ✔ tibble  3.0.3     ✔ dplyr   1.0.2
- ✔ tidyr   1.1.2     ✔ stringr 1.4.0
- ✔ readr   1.4.0     ✔ forcats 0.5.0
- ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── __#lists of any functions that might conflict with packages already loaded in R__
- ✖ dplyr::filter() masks stats::filter()
- ✖ dplyr::lag()    masks stats::lag()
+### Data Visualisation  
+
+library(tidyverse) __#loads the core tidyverse package, which helps access datasets, help pages, and functions__  
+ ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── __#list of packages loaded in with tidyverse__  
+ ✔ ggplot2 3.3.2     ✔ purrr   0.3.4  
+ ✔ tibble  3.0.3     ✔ dplyr   1.0.2  
+ ✔ tidyr   1.1.2     ✔ stringr 1.4.0  
+ ✔ readr   1.4.0     ✔ forcats 0.5.0  
+ ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── __#lists of any functions that might conflict with packages already loaded in R__  
+ ✖ dplyr::filter() masks stats::filter()  
+ ✖ dplyr::lag()    masks stats::lag()  
 
 
 install.packages("tidyverse") __#code to install tidyverse packages if not already installed. It only needs to be run once per session__  
@@ -997,18 +998,18 @@ ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + __#ggplot with mpg dataset
 
 
 
-__Helpful code template for applying the functions described in the chapter. It includes seven parameters. Can be used to build any plot.__ 
-ggplot(data = <DATA>) + ))#empty graph for plotting dataset__
-  <GEOM_FUNCTION>( __geom function to plot actual layer__
-    mapping = aes(<MAPPINGS>), __#aesthetic mapping of variables__
-    stat = <STAT>, __#statistical transformation of plot__
+__Helpful code template for applying the functions described in the chapter. It includes seven parameters. Can be used to build any plot.__   
+ggplot(data = <DATA>) + )) __#empty graph for plotting dataset__  
+  <GEOM_FUNCTION>( __geom function to plot actual layer__  
+    mapping = aes(<MAPPINGS>), __#aesthetic mapping of variables__  
+    stat = <STAT>, __#statistical transformation of plot__  
     position = <POSITION> __#position adjustment__
-  ) +
-  <COORDINATE_FUNCTION> + __#coordinate system of plot that can be adjusted__
-  <FACET_FUNCTION> __#Split plot into facets to display subsets of the data__
+  ) +  
+  <COORDINATE_FUNCTION> + __#coordinate system of plot that can be adjusted__  
+  <FACET_FUNCTION> __#Split plot into facets to display subsets of the data__  
   
 
-##Graphics for Communication
+### Graphics for Communication  
 
 
 library(tidyverse) __#Run the package tidyverse in the library__

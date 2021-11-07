@@ -1171,7 +1171,17 @@ abline(reg.output, col = &quot;red&quot;, lwd=2)</code></pre>
 <div id="section-3" class="section level2">
 <h2>11/08/2021</h2>
 <p>output: html_document: default</p>
-<p>###Data Visualisation library(tidyverse) <strong>#loads the core tidyverse package, which helps access datasets, help pages, and functions</strong> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── <strong>#list of packages loaded in with tidyverse</strong> ✔ ggplot2 3.3.2 ✔ purrr 0.3.4 ✔ tibble 3.0.3 ✔ dplyr 1.0.2 ✔ tidyr 1.1.2 ✔ stringr 1.4.0 ✔ readr 1.4.0 ✔ forcats 0.5.0 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── <strong>#lists of any functions that might conflict with packages already loaded in R</strong> ✖ dplyr::filter() masks stats::filter() ✖ dplyr::lag() masks stats::lag()</p>
+<div id="data-visualisation" class="section level3">
+<h3>Data Visualisation</h3>
+<p>library(tidyverse) <strong>#loads the core tidyverse package, which helps access datasets, help pages, and functions</strong><br />
+── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── <strong>#list of packages loaded in with tidyverse</strong><br />
+✔ ggplot2 3.3.2 ✔ purrr 0.3.4<br />
+✔ tibble 3.0.3 ✔ dplyr 1.0.2<br />
+✔ tidyr 1.1.2 ✔ stringr 1.4.0<br />
+✔ readr 1.4.0 ✔ forcats 0.5.0<br />
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── <strong>#lists of any functions that might conflict with packages already loaded in R</strong><br />
+✖ dplyr::filter() masks stats::filter()<br />
+✖ dplyr::lag() masks stats::lag()</p>
 <p>install.packages(“tidyverse”) <strong>#code to install tidyverse packages if not already installed. It only needs to be run once per session</strong><br />
 library(tidyverse) <strong>#now it can load tidyverse</strong></p>
 <p>mpg <strong>#loads a specific type of data frame from ggplot2. We can see here it has a rectangular set of variables (columns) and observations (rows). The loaded mpg dataset has observations from the US Environmental Protection Agency on 38 models of cars. The following rows listed show each observation within the dataset.</strong><br />
@@ -1305,8 +1315,17 @@ geom_point(mapping = aes(x = displ, y = hwy), position = “jitter”) <strong>#
 <p>bar &lt;- ggplot(data = diamonds) + <strong>#saves chunk of code into a bar vector</strong> geom_bar( eom command for a bar chart mapping = aes(x = cut, fill = cut), <strong>#maps variable cut along the x axis, fills cut bars with color</strong> show.legend = FALSE, <strong>#no legend with the plot</strong> width = 1 <strong>#width of the plot set to 1</strong> ) + theme(aspect.ratio = 1) + <strong>#modify theme based on aspect ratio to equal one, making the plot a square</strong> labs(x = NULL, y = NULL) <strong>#No labels on either axes</strong></p>
 <p>bar + coord_flip() <strong>#switches the y-axis with the x-axis for the bar</strong> bar + coord_polar() <strong>#uses polar coordinates to create a pie chart</strong></p>
 <p>ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + <strong>#ggplot with mpg dataset. There is global mapping with cty as the x-axis and hwy as the y-axis</strong> geom_point() + <strong>#scatterplot</strong> geom_abline() + <strong>#Reference line added to plot</strong> coord_fixed() <strong>#Plot with fixed aspect ratio</strong></p>
-<p><strong>Helpful code template for applying the functions described in the chapter. It includes seven parameters. Can be used to build any plot.</strong> ggplot(data = <DATA>) + ))#empty graph for plotting dataset__ <GEOM_FUNCTION>( <strong>geom function to plot actual layer</strong> mapping = aes(<MAPPINGS>), <strong>#aesthetic mapping of variables</strong> stat = <STAT>, <strong>#statistical transformation of plot</strong> position = <POSITION> <strong>#position adjustment</strong> ) + <COORDINATE_FUNCTION> + <strong>#coordinate system of plot that can be adjusted</strong> <FACET_FUNCTION> <strong>#Split plot into facets to display subsets of the data</strong></p>
-<p>##Graphics for Communication</p>
+<p><strong>Helpful code template for applying the functions described in the chapter. It includes seven parameters. Can be used to build any plot.</strong><br />
+ggplot(data = <DATA>) + )) <strong>#empty graph for plotting dataset</strong><br />
+<GEOM_FUNCTION>( <strong>geom function to plot actual layer</strong><br />
+mapping = aes(<MAPPINGS>), <strong>#aesthetic mapping of variables</strong><br />
+stat = <STAT>, <strong>#statistical transformation of plot</strong><br />
+position = <POSITION> <strong>#position adjustment</strong> ) +<br />
+<COORDINATE_FUNCTION> + <strong>#coordinate system of plot that can be adjusted</strong><br />
+<FACET_FUNCTION> <strong>#Split plot into facets to display subsets of the data</strong></p>
+</div>
+<div id="graphics-for-communication" class="section level3">
+<h3>Graphics for Communication</h3>
 <p>library(tidyverse) <strong>#Run the package tidyverse in the library</strong></p>
 <p>ggplot(mpg, aes(displ, hwy)) + <strong>#empty graph for plotting dataset</strong><br />
 geom_point(aes(color = class)) + <strong>#scatterplot with color aesthetic applied to the variable class</strong><br />
@@ -1385,6 +1404,7 @@ scale_colour_discrete() <strong>#default scales added by ggplot to each plot cre
 <strong>#fig.show=“hold” shows plots after the code</strong><br />
 <strong>#fig.cap adds a caption</strong><br />
 <strong>#dev=“png” sets the graphics type to png, making plots more compact</strong></p>
+</div>
 </div>
 </div>
 
