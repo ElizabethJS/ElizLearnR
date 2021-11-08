@@ -3,3 +3,10 @@ readr
 magrittr
 dplyr
 knitr
+tidyverse
+ggplot2
+tibble
+tidyr
+purrr
+stringr
+forcats
