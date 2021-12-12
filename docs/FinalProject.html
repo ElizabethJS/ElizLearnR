@@ -364,14 +364,14 @@ div.tocify {
 <p>The following exploratory data analysis will examine the main variable of interest, race, as well as each of the other demographic factors with number of releases in order to get a preliminary understanding of the relationship between the variables.</p>
 <p><strong>Race and Releases:</strong><br />
 This barplot shows the distribution of race/ethnicity of people released. The highest number are Black followed by white and Hispanic. This is likely due in part to the disparities in incarceration rates of people of color as compared to whites, but the large differences between these frequencies calls for further exploration of this variable as it relates to releases. This could also be due to the racial demographics of Philadelphia.<br />
-<img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/RaceEthnicity.png%22" /></p>
+<img src="images/RaceEthnicity.png" /></p>
 <p><strong>Age and Releases:</strong><br />
 In the below histogram we see that the data distribution is skewed to the right, with the most common age range of those released being between the ages of 20 and 40. This is likely due to the fact that this is also the most common age for crime and offending in general, and there is likely a higher proportion of inmates between 20 and 40 overall.<br />
-<img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/HistAge.png%22" /></p>
+<img src="images/HistAge.png" /></p>
 <p><strong>Sex and Releases:</strong><br />
-In the below histogram we see that there were far more male inmates released than female. This is likely due to the fact that there are higher populations of male inmates in Philadelphia prisons (and prisons in general) overall, so there are more of them to be released. <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/HistSex.png%22" /> <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/LegendSex.png%22" /></p>
+In the below histogram we see that there were far more male inmates released than female. This is likely due to the fact that there are higher populations of male inmates in Philadelphia prisons (and prisons in general) overall, so there are more of them to be released. <img src="images/HistSex.png" /> <img src="images/LegendSex.png" /></p>
 <p><strong>Custody Agency and Releases:</strong><br />
-In the below histogram, demonstrating the frequency of release by Custody Agency (0 - 0.5 representing the Phila Dept of Prisons and 0.5 - 1 representing the State Prison System), we can see that the Philadelphia Department of Prisons released many more inmates in 2015 than did the state system. <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/HistAgencies.png%22" /> <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/LegendAgencies.png%22" /></p>
+In the below histogram, demonstrating the frequency of release by Custody Agency (0 - 0.5 representing the Phila Dept of Prisons and 0.5 - 1 representing the State Prison System), we can see that the Philadelphia Department of Prisons released many more inmates in 2015 than did the state system. <img src="images/HistAgencies.png" /> <img src="images/LegendAgencies.png" /></p>
 </div>
 <div id="linear-regression" class="section level3">
 <h3>Linear Regression</h3>
@@ -380,19 +380,19 @@ In the below histogram, demonstrating the frequency of release by Custody Agency
 <ol style="list-style-type: decimal">
 <li><p>Linearity<br />
 Looking at the below residuals vs. fitted plot, we can see that the scatterplot smoother, showing the average value of the residuals at each value of fitted value, is pretty much flat across the plot. However, there are a group of outlying data points at the top right of the graph. The flatness of the red line indicates that there is no discernable non-linear pattern to the data. While the group of outlier data points is concerning, we will cautiously decide to proceed as though the linearity assumption is <strong>satisfied</strong>.<br />
-<img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/ResidvFitted.png%22" /></p></li>
+<img src="images/ResidvFitted.png" /></p></li>
 <li><p>Independence<br />
 While the independence assumption cannot be proved as true, we can see from the Residuals vs. Fitted plot that there does not seem to be any discernible pattern of the data, suggesting that the variables are independent of each other. We must note the outlying points in the top right corner of the plot, but it is unclear at this point in our analysis how influential they may be. Therefore, we will also cautiously consider the independence assumption <strong>satisfied</strong>.</p></li>
 <li><p>Homoscedasticity<br />
 In the Scale-Location plot shown below, there is a clear trend to the red line on this plot, and there is a significant group of data points that do not fit the trend at the top right corner. This plot indicates that the residuals have non-constant variance. Therefore, the homoscedasticity assumption, that all the errors have the same variance, is <strong>not satisfied</strong> by this data.<br />
-<img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/ScaleLocation.png%22" /></p></li>
+<img src="images/ScaleLocation.png" /></p></li>
 <li><p>Normality<br />
-As seen in the below normal Q-Qplot, the data really do not follow the trend of the line. Not only are they grouped in certain areas, but they also extend far past the line, to both the left and right, in each different grouping of data points. This demonstrates to us that the data is not normally distributed and <strong>does not satisfy</strong> the normality assumption. <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/NormalQQ.png%22" /></p></li>
+As seen in the below normal Q-Qplot, the data really do not follow the trend of the line. Not only are they grouped in certain areas, but they also extend far past the line, to both the left and right, in each different grouping of data points. This demonstrates to us that the data is not normally distributed and <strong>does not satisfy</strong> the normality assumption. <img src="images/NormalQQ.png" /></p></li>
 </ol>
 <p><strong>Regression Results and Causal Analysis:</strong><br />
 For the regression of the custody numeric onto race, the results are as follows; the estimated coefficient is .0052, the standard error is .0069, and the p-value of the slope is .4537. Using 0.05 as our confidence interval, the p-value of .4537 shows us that the relationship between race and number of releases is not statistically significant. This p-value essentially tells us that if the null hypothesis (no relationship between the two variables) were true, the chances of observing a statistic such as this data set would be 45.37%, which is a pretty high chance. Given the results of this linear regression, it seems that there is no statistically significant relationship between the number of releases and the race of the inmates being released from Philadelphia prisons.</p>
 <p>Although this is a very interesting topic to examine, it is not currently, and would not be able to be turned into, a casual estimate. Any relationship between an inmate’s release and their race would be solely correlational. While it’s possible for race to play a factor, even if subconsciously, in the prison system’s decision to release certain inmates, someone’s race itself is not causing their release or lack of release from prison. The purpose of this data analysis was to determine whether there was a relationship between the inmates released from prison in Philadelphia and their race, but there was no causal question to be addressed in this research. There is no way to make this research into a causal analysis, and the question at hand is merely correlative.</p>
-<p><strong>Causal DAG:</strong> <img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/DAG.png%22" /></p>
+<p><strong>Causal DAG:</strong> <img src="images/DAG.png" /></p>
 </div>
 <div id="discussion-and-ideas-for-future-work" class="section level3">
 <h3>Discussion and Ideas for Future Work</h3>
