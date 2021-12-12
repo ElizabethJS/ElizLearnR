@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>CRIM 250 Final Project</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Statistics for the Social Sciences</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
+  <a href="FinalProject.html">CRIM 250 Final Project</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">CRIM 250 Final Project</h1>
+
+</div>
+
+
+<div id="crim-250-final-project" class="section level1">
+<h1>CRIM 250 Final Project</h1>
+<div id="elizabeth-stoner-natalie-yang-sophia-restaino-johanna-doherty-carmen-avery" class="section level2">
+<h2>Elizabeth Stoner, Natalie Yang, Sophia Restaino, Johanna Doherty, Carmen Avery</h2>
+</div>
+<div id="section" class="section level2">
+<h2>10/04/2021</h2>
+<p>output: html_document ##setwd(“C:/Users/Elizabeth/Desktop/CRIM 250/testGithub/ElizLearnR”)</p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>For our final project, we looked at how different demographic factors are associated with prison release. We used a dataset from Open Data Philly, which includes information about the people released back into society coming out of both the Philadelphia Department of Prisons and the Pennsylvania Department of Corrections. This data shows a snapshot of release history, with data from 2015. Overall, it looks at the people who were charged with a criminal non-summary type offense<sup>[1]</sup>.</p>
+<p>The data contains information on 24,089 released individuals. The six columns of data include the custody agency from which each person was released, the date of their release, and some demographic information regarding sex, age, and race or ethnicity. In addition, it includes zip code data for each person. There are no nulls in the data except for zip code, but this is not a variable of interest. Although we will look at each of these demographic factors alongside race in our data analysis, our main research question for the project is: Does race have an effect on which inmates are released back into Philadelphia from State or Philadelphia prisons?</p>
+<p>For some motivation and context into the chosen research question, it is important to understand the difference between the city and state prison systems. The PA State Prison System releases inmates back into Philadelphia from just prisons, whereas the Philadelphia Department of Prisons includes jails. This is relevant because where prisons house inmates already convicted of more serious crimes, jails house both people convicted of minor crimes as well as those awaiting trial who have not yet been convicted. We decided that this distinction would make it interesting to see how race may be associated with whether an individual is released back to Philly from the PDP vs. the PA State system.</p>
+</div>
+<div id="exploratory-data-analysis" class="section level3">
+<h3>Exploratory Data Analysis</h3>
+<p>The following exploratory data analysis will examine the main variable of interest, race, as well as each of the other demographic factors with number of releases in order to get a preliminary understanding of the relationship between the variables.</p>
+<p><strong>Race and Releases:</strong> This barplot shows the distribution of race/ethnicity of people released. The highest number are Black followed by white and Hispanic. This is likely due in part to the disparities in incarceration rates of people of color as compared to whites, but the large differences between these frequencies calls for further exploration of this variable as it relates to releases. This could also be due to the racial demographics of Philadelphia.<br />
+<img src="%22C:/Users/Elizabeth/Desktop/CRIM%20250/testGithub/ElizLearnR/images/RaceEthnicity.png%22" alt="RaceEthnicity" /></p>
+<p><strong>Age and Releases:</strong> In the below histogram we see that the data distribution is skewed to the right, with the most common age range of those released being between the ages of 20 and 40. This is likely due to the fact that this is also the most common age for crime and offending in general, and there is likely a higher proportion of inmates between 20 and 40 overall.</p>
+<p><strong>Sex and Releases:</strong> In the below histogram we see that there were far more male inmates released than female. This is likely due to the fact that there are higher populations of male inmates in Philadelphia prisons (and prisons in general) overall, so there are more of them to be released.</p>
+<p><strong>Custody Agency and Releases:</strong> In the below histogram, demonstrating the frequency of release by Custody Agency (0 - 0.5 representing the Phila Dept of Prisons and 0.5 - 1 representing the State Prison System), we can see that the Philadelphia Department of Prisons released many more inmates in 2015 than did the state system.</p>
+</div>
+<div id="linear-regression" class="section level3">
+<h3>Linear Regression</h3>
+<p>For the analysis of this data set, we chose to do a linear regression as our model. We transformed the ‘custody_agency’ variable to be binary in which 1 = PDP and 0 = State, and we performed a transformation of the ‘race_ethnicity’ variable to be binary in which 0 = White and 1 = Black, Asian, Hispanic, and Other. We regressed the custody agency (binary) on race/ethnicity (binary) to look at the relationship between these variables. In the sections below we will address the assumptions to perform a linear regression, look at the results of the regression, and discuss the results and conclusions of the regression analysis.</p>
+<p><strong>Assumptions:</strong> 1. Linearity<br />
+Looking at the below residuals vs. fitted plot, we can see that the scatterplot smoother, showing the average value of the residuals at each value of fitted value, is pretty much flat across the plot. However, there are a group of outlying data points at the top right of the graph. The flatness of the red line indicates that there is no discernable non-linear pattern to the data. While the group of outlier data points is concerning, we will cautiously decide to proceed as though the linearity assumption is <strong>satisfied</strong>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Independence<br />
+While the independence assumption cannot be proved as true, we can see from the Residuals vs. Fitted plot that there does not seem to be any discernible pattern of the data, suggesting that the variables are independent of each other. We must note the outlying points in the top right corner of the plot, but it is unclear at this point in our analysis how influential they may be. Therefore, we will also cautiously consider the independence assumption <strong>satisfied</strong>.</p></li>
+<li><p>Homoscedasticity<br />
+In the Scale-Location plot shown below, there is a clear trend to the red line on this plot, and there is a significant group of data points that do not fit the trend at the top right corner. This plot indicates that the residuals have non-constant variance. Therefore, the homoscedasticity assumption, that all the errors have the same variance, is <strong>not satisfied</strong> by this data.</p></li>
+<li><p>Normality<br />
+As seen in the below normal Q-Qplot, the data really do not follow the trend of the line. Not only are they grouped in certain areas, but they also extend far past the line, to both the left and right, in each different grouping of data points. This demonstrates to us that the data is not normally distributed and <strong>does not satisfy</strong> the normality assumption.</p></li>
+</ol>
+<p><strong>Regression Results and Causal Analysis:</strong><br />
+For the regression of the custody numeric onto race, the results are as follows; the estimated coefficient is .0052, the standard error is .0069, and the p-value of the slope is .4537. Using 0.05 as our confidence interval, the p-value of .4537 shows us that the relationship between race and number of releases is not statistically significant. This p-value essentially tells us that if the null hypothesis (no relationship between the two variables) were true, the chances of observing a statistic such as this data set would be 45.37%, which is a pretty high chance. Given the results of this linear regression, it seems that there is no statistically significant relationship between the number of releases and the race of the inmates being released from Philadelphia prisons.</p>
+<p>Although this is a very interesting topic to examine, it is not currently, and would not be able to be turned into, a casual estimate. Any relationship between an inmate’s release and their race would be solely correlational. While it’s possible for race to play a factor, even if subconsciously, in the prison system’s decision to release certain inmates, someone’s race itself is not causing their release or lack of release from prison. The purpose of this data analysis was to determine whether there was a relationship between the inmates released from prison in Philadelphia and their race, but there was no causal question to be addressed in this research. There is no way to make this research into a causal analysis, and the question at hand is merely correlative.</p>
+<p><strong>Causal DAG:</strong></p>
+</div>
+<div id="discussion-and-ideas-for-future-work" class="section level3">
+<h3>Discussion and Ideas for Future Work</h3>
+<p>Based on the linear regression analysis which regressed race onto Custody Agency data, there does not appear to be a statistically significant relationship between race and those released back into Philadelphia from city vs. state prisons/jails. However, there are a few factors that make us unsure of the reliability of this conclusion. Firstly, this data set did not meet all of the assumptions for performing a linear regression analysis. The Normality, Homoscedasticity, and Independence assumptions were not met, and the Linearity assumption was not solidly met. This is likely due to the fact that both variables were coded as binary, and a logistic regression would probably have been a better fit for this dataset and question. Secondly, even if the assumptions had been met to perform a linear regression for this data, any results found may not tell the whole story. Given that the demographics of Philadelphia prisons include higher proportions of people of color (11.8% White vs. 88.2% POC in 2015),<sup>[2]</sup> if an accurately completed regression had indicated that there was a positive association between being released from the State or PDP and being a person of color, this may just come down to there being more people of color in prisons to be released. Given these demographics, the result that would be interesting would be a positive association between being released and being white, or even no association at all, which would indicate potential discrimination in the release process. If one were to complete future research using this data set and transforming the data to perform linear regression, these are all factors that would have to be taken into consideration.</p>
+<p>Despite not finding a causal relationship in our analysis, identifying bias and other problems in the prison system, especially regarding releases, is still worthwhile. Future research could include an examination of early releases versus releases of prisoners at the end of their sentence. Such an analysis could also include studying the behavior of inmates during their incarceration and how they are treated by prison staff and fellow inmates, factors which all work together to affect the possibility of early release. Additionally, since eligibility for parole is determined by human decision making, it is a process during which there can unfortunately be racial bias. A study of this issue could analyze racial disparities between inmates who are granted parole and those who have applied but are denied parole. This future research would also have to take the higher proportions of POC inmates into account when completing the statistical analysis. Another associated topic is sentencing. Research of bias in this department could address sentencing length disparities between people who committed the same type of crime but are of different races.</p>
+<p>[1] People released to Philadelphia from prison &amp; jail. OpenDataPhilly. (2018, March 8). Retrieved November 21, 2021, from <a href="https://www.opendataphilly.org/dataset/prison-releases" class="uri">https://www.opendataphilly.org/dataset/prison-releases</a>.</p>
+<p>[2] ​​“Philadelphia Jail Population Report | July 2015 – April 2019.” Research and Development First Judicial District of Pennsylvania. Phila Gov. Accessed December 3, 2021. <a href="https://www.phila.gov/media/20190513144034/April-2019-Full-Jail-Report.pdf" class="uri">https://www.phila.gov/media/20190513144034/April-2019-Full-Jail-Report.pdf</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -6,6 +6,8 @@ navbar:
       href: index.html
     - text: "Assignments"
       href: Assignments.html
+    - text: "CRIM 250 Final Project"
+      href: FinalProject.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
